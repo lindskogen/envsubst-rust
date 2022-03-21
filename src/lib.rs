@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use regex::{Captures, Regex};
 
 pub fn replace_in_str(string: &str, replace_map: &HashMap<String, String>) -> String {
-    let env_var_regex: Regex = Regex::new(r"\$(\w+)|\$\{(\w+)(:?[-+](\$?\w+|[^}]+))?\}").unwrap();
+    let env_var_regex: Regex = Regex::new(r"\$(\w+)|\$\{(\w+)(:?[-=+](\$?\w+|[^}]+))?\}").unwrap();
     let result = env_var_regex.replace_all(&string, |caps: &Captures| {
         if caps.get(4).is_some() {
             format!("{}", replace_map.get(&caps[2]).or(
