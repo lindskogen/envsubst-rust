@@ -12,7 +12,7 @@ fn main() -> io::Result<()> {
 
     io::stdin().read_to_string(&mut string)?;
 
-    let result = replace_in_str(string, &replace_map);
+    let result = replace_in_str(&string, &replace_map);
 
     println!("{}", result);
 
