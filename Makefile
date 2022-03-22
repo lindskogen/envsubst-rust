@@ -3,4 +3,4 @@ build:
 
 
 install: build
-	cp target/release/envsubst ~/.bin/.
+	mv target/release/envsubst ~/.bin/.
